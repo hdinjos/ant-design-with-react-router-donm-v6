@@ -1,11 +1,7 @@
-import { Button } from 'antd';
+import BaseLayout from "./views/Layout/BaseLayout";
 
 function App() {
-  return (
-    <div>
-      <Button type="primary">Button</Button>
-    </div>
-  );
+  return <BaseLayout />
 }
 
 export default App;
