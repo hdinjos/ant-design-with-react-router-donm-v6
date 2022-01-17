@@ -4,11 +4,12 @@
   line-height: 64px;
   cursor: pointer;
   transition: color 0.3s;
+  color: #fff !important;
   /* width: 100px; */
 }
 
 .trigger:hover {
-  color: #1890ff;
+  color: #1890ff !important;
 }
 
 .logo {
@@ -20,4 +21,12 @@
 
 .site-layout .site-layout-background {
   background: #fff;
+}
+
+.header {
+  padding: 0 !important;
+  position: fixed;
+  z-index: 1;
+  width: 100%;
+  box-shadow: 0 3px 2px -2px gray;
 }
