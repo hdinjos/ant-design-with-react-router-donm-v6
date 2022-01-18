@@ -1,11 +1,15 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../../services/auth";
+import { useSelector, useDispatch } from "react-redux";
+import { setDecrement, setIncrement } from "../../store/actions/counter"
 
 function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
+  const counter = useSelector(state => state.counter);
+  const dispatch = useDispatch();
 
   const toLogin = async (e) => {
     e.preventDefault();
@@ -26,6 +30,10 @@ function Login() {
         <input value={password} onChange={(e) => setPassword(e.target.value)} type="text" placeholder="Pasword" />
         <button type="submit">Login</button>
       </form>
+      {counter}
+      <button onClick={() => dispatch(setIncrement())}>Tambah</button>
+      <button onClick={() => dispatch(setDecrement())}>Kurang</button>
+
     </div>
   );
 }
