@@ -16,6 +16,7 @@ const { Header, Sider, Content, Footer } = Layout;
 const BaseLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
+  const { pathname } = location;
 
   return (
     <Layout>
@@ -23,7 +24,7 @@ const BaseLayout = () => {
         <div className={style.logo}>
           APP JOS
         </div>
-        <Menu theme='dark' mode="inline" defaultSelectedKeys={[location.pathname]}>
+        <Menu theme='dark' mode="inline" defaultSelectedKeys={[pathname === "/" ? "/nav-2" : pathname]}>
           <Menu.Item style={{ marginTop: 0 }} key="/nav-1" icon={<UserOutlined />}>
             <Link to="/nav-1">
               nav 1
