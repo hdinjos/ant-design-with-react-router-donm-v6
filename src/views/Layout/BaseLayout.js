@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu } from 'antd';
 import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
@@ -7,6 +7,7 @@ import {
   VideoCameraOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
+import Breadcrumb from '../../components/Breadcrumb';
 import style from "../../assets/style/BaseLayout/layout.module.css";
 
 const { Header, Sider, Content, Footer } = Layout;
@@ -40,11 +41,7 @@ const BaseLayout = () => {
             onClick: () => setCollapsed(!collapsed),
           })}
         </Header>
-        <Breadcrumb style={{ margin: '80px 16px 0px 16px' }}>
-          <Breadcrumb.Item>Home</Breadcrumb.Item>
-          <Breadcrumb.Item>List</Breadcrumb.Item>
-          <Breadcrumb.Item>App</Breadcrumb.Item>
-        </Breadcrumb>
+        <Breadcrumb />
         <Content
           className={style["site-layout-background"]}
           style={{
@@ -52,18 +49,6 @@ const BaseLayout = () => {
             padding: 24,
           }}
         >
-          {/* {(() => {
-            let number = [];
-            for (let i = 1; i < 100; i++) {
-              number.push(i);
-            }
-
-            return number.map((num, index) => {
-              return (
-                <div key={index}>{num}</div>
-              )
-            })
-          })()} */}
           Content
         </Content>
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
