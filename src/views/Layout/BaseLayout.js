@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, useLocation, Outlet } from "react-router-dom";
 import { Layout, Menu } from 'antd';
 import {
   MenuUnfoldOutlined,
@@ -14,6 +15,7 @@ const { Header, Sider, Content, Footer } = Layout;
 
 const BaseLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
+  const location = useLocation();
 
   return (
     <Layout>
@@ -21,15 +23,21 @@ const BaseLayout = () => {
         <div className={style.logo}>
           APP JOS
         </div>
-        <Menu theme='dark' mode="inline" defaultSelectedKeys={['1']}>
-          <Menu.Item style={{ marginTop: 0 }} key="1" icon={<UserOutlined />}>
-            nav 1
+        <Menu theme='dark' mode="inline" defaultSelectedKeys={[location.pathname]}>
+          <Menu.Item style={{ marginTop: 0 }} key="/nav-1" icon={<UserOutlined />}>
+            <Link to="/nav-1">
+              nav 1
+            </Link>
           </Menu.Item>
-          <Menu.Item key="2" icon={<VideoCameraOutlined />}>
-            nav 2
+          <Menu.Item key="/nav-2" icon={<VideoCameraOutlined />}>
+            <Link to="/nav-2">
+              nav 2
+            </Link>
           </Menu.Item>
-          <Menu.Item key="3" icon={<UploadOutlined />}>
-            nav 3
+          <Menu.Item key="/nav-3" icon={<UploadOutlined />}>
+            <Link to="/nav-3">
+              nav 3
+            </Link>
           </Menu.Item>
 
         </Menu>
@@ -49,6 +57,7 @@ const BaseLayout = () => {
             padding: 24,
           }}
         >
+          <Outlet />
           Content
         </Content>
         <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
@@ -56,5 +65,6 @@ const BaseLayout = () => {
     </Layout>
   );
 }
+
 
 export default BaseLayout;

@@ -8,7 +8,7 @@ function Login() {
 
   const toLogin = (e) => {
     e.preventDefault();
-    navigate("/");
+    navigate("/nav-2");
   };
 
   return (
