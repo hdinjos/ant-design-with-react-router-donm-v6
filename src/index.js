@@ -5,10 +5,11 @@ import "./assets/style/antd.less"
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
-import { createStore } from "redux";
-import { counterReducer } from "./store/reducer";
+import { createStore, applyMiddleware } from "redux";
+import thunk from "redux-thunk"
+import reducer from "./store/reducer";
 
-const store = createStore(counterReducer);
+const store = createStore(reducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>

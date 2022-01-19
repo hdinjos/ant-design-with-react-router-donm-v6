@@ -8,7 +8,7 @@ function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const navigate = useNavigate();
-  const counter = useSelector(state => state.counter);
+  const counter = useSelector(state => state.counter.counter);
   const dispatch = useDispatch();
 
   const toLogin = async (e) => {
