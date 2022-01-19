@@ -1,5 +1,6 @@
 import BaseLayout from "./views/Layout/BaseLayout";
 import Login from "./views/Auth/Login";
+import Register from "./views/Auth/Register";
 
 import {
   Routes,
@@ -16,8 +17,8 @@ function App() {
         <Route path="nav-2" element={<Nav2 />} />
         <Route path="nav-3" element={<Nav3 />} />
       </Route>
-      <Route path="login" element={<Login />}>
-      </Route>
+      <Route path="login" element={<Login />}></Route>
+      <Route path="register" element={<Register />}></Route>
     </Routes>
   );
 
