@@ -17,8 +17,7 @@ function Login() {
       email, password
     }
     dispatch(reqLogin(request));
-
-    // navigate("/nav-2");
+    navigate("/");
   };
 
   return (

@@ -1,7 +1,7 @@
 import { AUTH_LOGIN_REQUEST, AUTH_LOGIN_SUCCESS, AUTH_LOGIN_FAIL } from "../../type/auth";
 
 const initialState = {
-  isLoggedId: false,
+  isLoggedIn: false,
   userData: {},
   isLoading: false,
   error: ""
