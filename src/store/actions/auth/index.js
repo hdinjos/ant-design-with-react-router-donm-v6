@@ -6,8 +6,8 @@ export const reqLogin = (request) => async (dispatch) => {
     dispatch({ type: AUTH_LOGIN_REQUEST });
     const response = await login(request);
     console.log(response);
-    dispatch({ type: AUTH_LOGIN_SUCCESS });
+    dispatch({ type: AUTH_LOGIN_SUCCESS, data: response.data });
   } catch (err) {
-    dispatch({ type: AUTH_LOGIN_FAIL });
+    dispatch({ type: AUTH_LOGIN_FAIL, error: err });
   }
 };
