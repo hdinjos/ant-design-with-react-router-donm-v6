@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Link, useLocation, Outlet } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { Link, useLocation, Outlet, useNavigate } from "react-router-dom";
 import { Layout, Menu } from 'antd';
 import {
   MenuUnfoldOutlined,
@@ -11,11 +12,14 @@ import {
 import Breadcrumb from '../../components/Breadcrumb';
 import style from "../../assets/style/BaseLayout/layout.module.css";
 
+
 const { Header, Sider, Content, Footer } = Layout;
 
 const BaseLayout = () => {
   const [collapsed, setCollapsed] = useState(false);
   const location = useLocation();
+  const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { pathname } = location;
 
   return (

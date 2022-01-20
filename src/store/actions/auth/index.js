@@ -1,4 +1,4 @@
-import { AUTH_LOGIN_REQUEST, AUTH_LOGIN_SUCCESS, AUTH_LOGIN_FAIL } from "../../type/auth";
+import { AUTH_LOGIN_REQUEST, AUTH_LOGIN_SUCCESS, AUTH_LOGIN_FAIL, AUTH_LOGIN_RESUME } from "../../type/auth";
 import { login } from "../../../services/auth";
 import jwtParse from "../../../utils/jwtParse";
 
@@ -18,5 +18,12 @@ export const reqLogin = (request) => async (dispatch) => {
     dispatch({ type: AUTH_LOGIN_SUCCESS, data: userData(response.data.accessToken) });
   } catch (err) {
     dispatch({ type: AUTH_LOGIN_FAIL, error: err });
+  }
+};
+
+export const reLogin = () => async (dispatch) => {
+  const token = localStorage.getItem("accessToken");
+  if (token) {
+    dispatch({ type: AUTH_LOGIN_RESUME, data: userData(token) });
   }
 };

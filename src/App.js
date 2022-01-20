@@ -1,7 +1,9 @@
+import { useEffect } from "react";
 import BaseLayout from "./views/Layout/BaseLayout";
 import Login from "./views/Auth/Login";
 import Register from "./views/Auth/Register";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { reLogin } from './store/actions/auth';
 
 import {
   Routes,
@@ -10,7 +12,13 @@ import {
 } from "react-router-dom";
 
 function App() {
-  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn) || false;
+  const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(reLogin());
+  }, [])
+
   console.log(isLoggedIn);
 
   return (
