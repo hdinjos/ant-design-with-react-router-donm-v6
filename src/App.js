@@ -17,19 +17,17 @@ function App() {
 
   useEffect(() => {
     dispatch(reLogin());
-  }, [])
-
-  console.log(isLoggedIn);
+  }, [dispatch])
 
   return (
     <Routes>
-      <Route path="/" element={isLoggedIn ? <BaseLayout /> : <Navigate to="/login" />}>
+      <Route path="/" element={isLoggedIn ? <BaseLayout /> : <Navigate to="/login" replace />}>
         <Route path="/" element={<Navigate to="/nav-2" />} />
         <Route path="nav-1" element={<Nav1 />} />
         <Route path="nav-2" element={<Nav2 />} />
         <Route path="nav-3" element={<Nav3 />} />
       </Route>
-      <Route path="login" element={isLoggedIn ? <Navigate to="/" /> : <Login />}></Route>
+      <Route path="login" element={isLoggedIn ? <Navigate to="/" replace /> : <Login />}></Route>
       <Route path="register" element={<Register />}></Route>
     </Routes>
   );
