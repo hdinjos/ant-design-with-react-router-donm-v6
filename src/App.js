@@ -1,16 +1,24 @@
 import { Suspense } from "react";
 import { useSelector } from "react-redux";
+import { Spin } from 'antd';
 import {
-  useRoutes
+  useRoutes, useLocation
 } from "react-router-dom";
+import { TransitionGroup, CSSTransition } from "react-transition-group";
 import router from "./router";
+import style from "./assets/style/custom/transition.module.css"
 
 function App() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const routing = useRoutes(router(isLoggedIn));
+  const location = useLocation();
+  const routing = useRoutes(router(isLoggedIn), location);
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      {routing}
+    <Suspense fallback={<div><Spin /></div>}>
+      <TransitionGroup component={null}>
+        <CSSTransition key={location.key} classNames={style.fade} timeout={300}>
+          {routing}
+        </CSSTransition>
+      </TransitionGroup>
     </Suspense>
   );
 }
