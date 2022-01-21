@@ -25,9 +25,15 @@ export const reqLogin = (request) => async (dispatch) => {
   }
 };
 
-export const reLogin = () => async (dispatch) => {
-  const token = sStorage.get("xToken");
-  if (token) {
-    dispatch({ type: AUTH_LOGIN_RESUME, data: userData(token) });
+export const reLogin = () => (dispatch) => {
+  try {
+    const token = sStorage.get("xToken");
+    if (token) {
+      dispatch({ type: AUTH_LOGIN_RESUME, data: userData(token) });
+    }
+  } catch (err) {
+    if (err instanceof TypeError && err.message === "deCompressedData is null") {
+      dispatch({ type: AUTH_LOGIN_FAIL, error: err })
+    }
   }
 };
