@@ -1,9 +1,10 @@
-import { useEffect } from "react";
 import BaseLayout from "./views/Layout/BaseLayout";
 import Login from "./views/Auth/Login";
 import Register from "./views/Auth/Register";
-import { useSelector, useDispatch } from "react-redux";
-import { reLogin } from './store/actions/auth';
+import { useSelector } from "react-redux";
+// import { reLogin } from './store/actions/auth';
+
+import parseJwt from "./utils/jwtParse";
 
 import {
   Routes,
@@ -11,13 +12,10 @@ import {
   Navigate
 } from "react-router-dom";
 
+
 function App() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(reLogin());
-  }, [dispatch])
+  // const dispatch = useDispatch()
 
   return (
     <Routes>

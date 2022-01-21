@@ -3215,6 +3215,11 @@ cross-spawn@^7.0.0, cross-spawn@^7.0.2, cross-spawn@^7.0.3:
     shebang-command "^2.0.0"
     which "^2.0.1"
 
+crypto-js@^3.1.6:
+  version "3.3.0"
+  resolved "https://registry.yarnpkg.com/crypto-js/-/crypto-js-3.3.0.tgz#846dd1cce2f68aacfa156c8578f926a609b7976b"
+  integrity sha512-DIT51nX0dCfKltpRiXV+/TVZq+Qq2NgF4644+K7Ttnla7zEzqc+kjJyiB96BHNyUTBxyjzRcZYpUdZa+QAqi6Q==
+
 crypto-random-string@^2.0.0:
   version "2.0.0"
   resolved "https://registry.npmjs.org/crypto-random-string/-/crypto-random-string-2.0.0.tgz"
@@ -8074,6 +8079,14 @@ scroll-into-view-if-needed@^2.2.25:
   integrity sha512-8LuxJSuFVc92+0AdNv4QOxRL4Abeo1DgLnGNkn1XlaujPH/3cCFz3QI60r2VNu4obJJROzgnIUw5TKQkZvZI1w==
   dependencies:
     compute-scroll-into-view "^1.0.17"
+
+secure-ls@^1.2.6:
+  version "1.2.6"
+  resolved "https://registry.yarnpkg.com/secure-ls/-/secure-ls-1.2.6.tgz#0c54a4c7fa8317c3c101accbf6bb38d8d2072e46"
+  integrity sha512-g8vUSKl6elSfyAUHodybnNkuZW+mUYEOWj4SZIDg+xoQ1dq5ddktBoOFrtxQBUl88ZyAJOtGWQ1PRaOxkTAuZQ==
+  dependencies:
+    crypto-js "^3.1.6"
+    lz-string "^1.4.4"
 
 select-hose@^2.0.0:
   version "2.0.0"

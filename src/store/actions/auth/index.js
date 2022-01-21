@@ -1,6 +1,9 @@
 import { AUTH_LOGIN_REQUEST, AUTH_LOGIN_SUCCESS, AUTH_LOGIN_FAIL, AUTH_LOGIN_RESUME } from "../../type/auth";
 import { login } from "../../../services/auth";
 import jwtParse from "../../../utils/jwtParse";
+import sStorage from "../../../utils/sStorage";
+
+
 
 const userData = (token) => {
   const { id, email, fullName } = jwtParse(token);
@@ -13,8 +16,9 @@ export const reqLogin = (request) => async (dispatch) => {
   try {
     dispatch({ type: AUTH_LOGIN_REQUEST });
     const response = await login(request);
-    localStorage.setItem("accessToken", response.data.accessToken);
-    localStorage.setItem("refreshToken", response.data.refreshToken);
+    sStorage.set("xToken", response.data.accessToken);
+    sStorage.set("yToken", response.data.refreshToken);
+    sStorage.set("nData", userData(response.data.accessToken))
     dispatch({ type: AUTH_LOGIN_SUCCESS, data: userData(response.data.accessToken) });
   } catch (err) {
     dispatch({ type: AUTH_LOGIN_FAIL, error: err });
@@ -22,7 +26,7 @@ export const reqLogin = (request) => async (dispatch) => {
 };
 
 export const reLogin = () => async (dispatch) => {
-  const token = localStorage.getItem("accessToken");
+  const token = sStorage.get("xToken");
   if (token) {
     dispatch({ type: AUTH_LOGIN_RESUME, data: userData(token) });
   }
