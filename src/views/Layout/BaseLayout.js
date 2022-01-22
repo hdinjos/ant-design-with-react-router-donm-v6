@@ -17,21 +17,23 @@ const BaseLayout = () => {
         <Navbar />
         <Layout className={style["site-layout"]} style={{ minHeight: "100vh" }}>
           <Header />
-          <Breadcrumb />
           <Content
-            className={style["site-layout-background"]}
             style={{
-              margin: '16px 16px 0px 16px',
-              padding: 24,
+              margin: '64px 0px 0px 0px',
             }}
           >
+
             <Outlet />
-            Content
+            {/* <Content style={{
+              padding: 24,
+            }}>
+
+            </Content> */}
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>
       </Layout>
-    </CollapsedContextProvider>
+    </CollapsedContextProvider >
 
   );
 }

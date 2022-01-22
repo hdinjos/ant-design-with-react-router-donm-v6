@@ -3,16 +3,23 @@ import { Navigate, Outlet } from "react-router-dom";
 import BaseLayout from "../views/Layout/BaseLayout";
 import Login from "../views/Auth/Login";
 import Register from "../views/Auth/Register";
+import Nav1 from "../views/User/Nav1";
+import Nav2 from "../views/User/Nav2";
+import Nav3 from "../views/User/Nav3";
 
-const Nav1 = lazy(() => import("../views/User/Nav1"));
-const Nav2 = lazy(() => import("../views/User/Nav2"));
-const Nav3 = lazy(() => import("../views/User/Nav3"));
+// const Nav1 = lazy(() => import("../views/User/Nav1"));
+// const Nav2 = lazy(() => import("../views/User/Nav2"));
+// const Nav3 = lazy(() => import("../views/User/Nav3"));
 
 const router = (isLoggedIn) => [
   {
     path: "/",
     element: isLoggedIn ? <BaseLayout /> : <Navigate to="/login" replace />,
     children: [
+      {
+        path: "",
+        element: <Navigate to="/nav-2" replace />
+      },
       {
         path: "nav-1",
         element: <Nav1 />

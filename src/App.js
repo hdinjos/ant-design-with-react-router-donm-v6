@@ -4,22 +4,25 @@ import { Spin } from 'antd';
 import {
   useRoutes, useLocation
 } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+// import { TransitionGroup, CSSTransition } from "react-transition-group";
 import router from "./router";
-import style from "./assets/style/custom/transition.module.css"
+// import style from "./assets/style/custom/transition.module.css"
 
 function App() {
   const isLoggedIn = useSelector((state) => state.auth.isLoggedIn);
-  const location = useLocation();
-  const routing = useRoutes(router(isLoggedIn), location);
+  // const location = useLocation();
+  const routing = useRoutes(router(isLoggedIn));
   return (
-    <Suspense fallback={<div><Spin /></div>}>
-      <TransitionGroup component={null}>
-        <CSSTransition key={location.key} classNames={style.fade} timeout={300}>
-          {routing}
-        </CSSTransition>
-      </TransitionGroup>
-    </Suspense>
+    <>
+
+      {/* <Suspense fallback={<div><Spin /></div>}> */}
+      {/* <TransitionGroup component={null}> */}
+      {/* <CSSTransition key={location.key} classNames={style.fade} timeout={300}> */}
+      {routing}
+      {/* </CSSTransition> */}
+      {/* </TransitionGroup> */}
+      {/* </Suspense> */}
+    </>
   );
 }
 
