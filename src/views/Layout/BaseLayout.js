@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Outlet } from "react-router-dom";
 import { Layout } from 'antd';
-import Breadcrumb from '../../components/Breadcrumb';
 import { CollapsedContextProvider } from './CollapsedContext';
 import Navbar from "../../components/Navbar";
 import Header from '../../components/Header';
@@ -22,13 +21,7 @@ const BaseLayout = () => {
               margin: '64px 0px 0px 0px',
             }}
           >
-
             <Outlet />
-            {/* <Content style={{
-              padding: 24,
-            }}>
-
-            </Content> */}
           </Content>
           <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
         </Layout>

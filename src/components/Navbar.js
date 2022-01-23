@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Layout, Menu } from 'antd';
 import { Link, useLocation } from "react-router-dom";
 import { CollapsedContext } from '../views/Layout/CollapsedContext';
@@ -8,6 +8,7 @@ import {
   UploadOutlined,
 } from '@ant-design/icons';
 import style from "../assets/style/BaseLayout/layout.module.css";
+import { compose } from 'redux';
 
 const { Sider } = Layout;
 
@@ -15,13 +16,19 @@ const Navbar = () => {
   const c = useContext(CollapsedContext);
   const location = useLocation();
   const { pathname } = location;
+  const [pName, setPName] = useState("");
+  useEffect(() => {
+    setPName(pathname);
+  }, [pathname])
+
+  console.log(pathname);
 
   return (
     <Sider trigger={null} collapsible collapsed={c.collapsed}>
       <div className={style.logo}>
         APP JOS
       </div>
-      <Menu theme='dark' mode="inline" defaultSelectedKeys={[pathname === "/" ? "/nav-2" : pathname]}>
+      <Menu theme='dark' mode="inline" defaultSelectedKeys={[pathname]}>
         <Menu.Item style={{ marginTop: 0 }} key="/nav-1" icon={<UserOutlined />}>
           <Link to="/nav-1">
             nav 1

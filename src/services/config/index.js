@@ -1,5 +1,6 @@
 import axios from "axios";
 import { baseURL } from "../../utils/constant";
+import sStorage from "../../utils/sStorage";
 
 const httpPublic = axios.create({
   baseURL,
@@ -12,7 +13,7 @@ const httpPrivate = axios.create({
 
 httpPrivate.interceptors.request.use(
   (config) => {
-    const token = localStorage.getItem("token");
+    const token = sStorage.get("xToken");
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     };
@@ -29,11 +30,11 @@ httpPrivate.interceptors.response.use(
   },
   async (error) => {
     if (error.response.status === 401) {
-      const refreshToken = localStorage.getItem("refreshToken");
+      const refreshToken = sStorage.get("yToken");
       const response = await httpPrivate.post("/refreshToken", {
         refreshToken
       });
-      localStorage.setItem("token", response.data.refreshToken);
+      sStorage.set("yToken", response.data.refreshToken);
       error.response.config.headers['Authorization'] = "Bearer " + response.data.accessToken;
       return axios(error.response.config);
     }

@@ -1,87 +1,60 @@
+import { useEffect, useState } from 'react';
 import { Table, Tag, Space, Layout } from 'antd';
 import Breadcrumbs from '../../components/Breadcrumb';
+import { index } from '../../services/item';
 import style from "../../assets/style/BaseLayout/layout.module.css"
 
 const Nav2 = () => {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchItem = async () => {
+      const response = await index();
+      const result = response.data.data.map(item => ({ ...item, key: item.id }));
+      setData(result);
+    }
+    fetchItem();
+  }, [])
+
   const columns = [
     {
-      title: 'Name',
-      dataIndex: 'name',
-      key: 'name',
-      render: text => <a>{text}</a>,
+      title: "Name",
+      dataIndex: "itemName",
     },
     {
-      title: 'Age',
-      dataIndex: 'age',
-      key: 'age',
+      title: "Color",
+      dataIndex: "itemColor",
     },
     {
-      title: 'Address',
-      dataIndex: 'address',
-      key: 'address',
+      title: "Quantity",
+      dataIndex: "itemQty",
     },
     {
-      title: 'Tags',
-      key: 'tags',
-      dataIndex: 'tags',
-      render: tags => (
-        <>
-          {tags.map(tag => {
-            let color = tag.length > 5 ? 'geekblue' : 'green';
-            if (tag === 'loser') {
-              color = 'volcano';
-            }
-            return (
-              <Tag color={color} key={tag}>
-                {tag.toUpperCase()}
-              </Tag>
-            );
-          })}
-        </>
-      ),
+      title: "Description",
+      dataIndex: "itemDescription",
     },
     {
       title: 'Action',
-      key: 'action',
       render: (text, record) => (
         <Space size="middle">
-          <a>Invite {record.name}</a>
+          <a>Edit</a>
           <a>Delete</a>
         </Space>
       ),
     },
   ];
 
-  const data = [
-    {
-      key: '1',
-      name: 'John Brown',
-      age: 32,
-      address: 'New York No. 1 Lake Park',
-      tags: ['nice', 'developer'],
-    },
-    {
-      key: '2',
-      name: 'Jim Green',
-      age: 42,
-      address: 'London No. 1 Lake Park',
-      tags: ['loser'],
-    },
-    {
-      key: '3',
-      name: 'Joe Black',
-      age: 32,
-      address: 'Sidney No. 1 Lake Park',
-      tags: ['cool', 'teacher'],
-    },
-  ];
+  const bItems = [
+    { name: "Home", to: "/" },
+    { name: "Nav 2", to: "/nav-2" }
+  ]
   return (
     <>
-      <Breadcrumbs />
+      <Breadcrumbs title="List Items" items={bItems} />
       <Layout.Content
         className={style["site-layout-background"]}
         style={{
-          margin: 18,
+          margin: "18px 18px 0px 18px",
           padding: 12
         }}
       >
