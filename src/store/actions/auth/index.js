@@ -1,7 +1,7 @@
-import { AUTH_LOGIN_REQUEST, AUTH_LOGIN_SUCCESS, AUTH_LOGIN_FAIL, AUTH_LOGIN_RESUME } from "../../type/auth";
-import { login } from "../../../services/auth";
-import jwtParse from "../../../utils/jwtParse";
-import sStorage from "../../../utils/sStorage";
+import { AUTH_LOGIN_REQUEST, AUTH_LOGIN_SUCCESS, AUTH_LOGIN_FAIL, AUTH_LOGIN_RESUME } from "store/type/auth";
+import { login } from "services/auth";
+import jwtParse from "utils/jwtParse";
+import sStorage from "utils/sStorage";
 
 
 

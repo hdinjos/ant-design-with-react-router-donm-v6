@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { Table, Tag, Space, Layout } from 'antd';
-import Breadcrumbs from '../../components/Breadcrumb';
-import { index } from '../../services/item';
-import style from "../../assets/style/BaseLayout/layout.module.css"
+import Breadcrumbs from 'components/Breadcrumb';
+import { index } from 'services/item';
+import style from "assets/style/BaseLayout/layout.module.css"
 
 const Nav2 = () => {
   const [data, setData] = useState([]);

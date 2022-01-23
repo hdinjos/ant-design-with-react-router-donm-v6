@@ -1,11 +1,11 @@
 import { lazy } from "react";
 import { Navigate, Outlet } from "react-router-dom";
-import BaseLayout from "../views/Layout/BaseLayout";
-import Login from "../views/Auth/Login";
-import Register from "../views/Auth/Register";
-import Nav1 from "../views/User/Nav1";
-import Nav2 from "../views/User/Nav2";
-import Nav3 from "../views/User/Nav3";
+import BaseLayout from "views/Layout/BaseLayout";
+import Login from "views/Auth/Login";
+import Register from "views/Auth/Register";
+import Nav1 from "views/User/Nav1";
+import Nav2 from "views/User/Nav-2/Nav2";
+import Nav3 from "views/User/Nav3";
 
 // const Nav1 = lazy(() => import("../views/User/Nav1"));
 // const Nav2 = lazy(() => import("../views/User/Nav2"));

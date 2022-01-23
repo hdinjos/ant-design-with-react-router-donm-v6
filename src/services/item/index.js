@@ -1,4 +1,4 @@
-import { httpPrivate } from "../config";
+import { httpPrivate } from "services/config";
 
 const index = () => httpPrivate.get(`/items`);
 const show = (id) => httpPrivate.get(`/item/${id}`);

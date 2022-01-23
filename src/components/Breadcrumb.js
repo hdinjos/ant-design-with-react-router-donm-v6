@@ -1,7 +1,7 @@
 import React from 'react'
 import { Breadcrumb, Typography } from 'antd';
 import { Link } from 'react-router-dom';
-import style from "../assets/style/custom/custom.module.css";
+import style from "assets/style/custom/custom.module.css";
 
 const { Title } = Typography;
 

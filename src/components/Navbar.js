@@ -1,13 +1,13 @@
 import React, { useContext, useState, useEffect } from 'react';
 import { Layout, Menu } from 'antd';
 import { Link, useLocation } from "react-router-dom";
-import { CollapsedContext } from '../views/Layout/CollapsedContext';
+import { CollapsedContext } from 'views/Layout/CollapsedContext';
 import {
   UserOutlined,
   VideoCameraOutlined,
   UploadOutlined,
 } from '@ant-design/icons';
-import style from "../assets/style/BaseLayout/layout.module.css";
+import style from "assets/style/BaseLayout/layout.module.css";
 import { compose } from 'redux';
 
 const { Sider } = Layout;

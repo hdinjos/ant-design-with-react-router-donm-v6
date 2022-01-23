@@ -1,4 +1,4 @@
-import { SET_DECREMENT, SET_INCREMENT } from "../../type/counter";
+import { SET_DECREMENT, SET_INCREMENT } from "store/type/counter";
 
 const initialState = {
   counter: 0

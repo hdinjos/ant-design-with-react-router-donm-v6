@@ -1,6 +1,6 @@
 import axios from "axios";
-import { baseURL } from "../../utils/constant";
-import sStorage from "../../utils/sStorage";
+import { baseURL } from "utils/constant";
+import sStorage from "utils/sStorage";
 
 const httpPublic = axios.create({
   baseURL,

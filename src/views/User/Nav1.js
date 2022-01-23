@@ -1,6 +1,6 @@
 import { Layout } from 'antd';
-import Breadcrumbs from '../../components/Breadcrumb';
-import style from "../../assets/style/BaseLayout/layout.module.css"
+import Breadcrumbs from 'components/Breadcrumb';
+import style from "assets/style/BaseLayout/layout.module.css"
 
 const Nav1 = () => {
   const bItems = [

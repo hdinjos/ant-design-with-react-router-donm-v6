@@ -1,4 +1,4 @@
-import { SET_INCREMENT, SET_DECREMENT } from "../../type/counter";
+import { SET_INCREMENT, SET_DECREMENT } from "store/type/counter";
 
 export const setIncrement = () => ({
   type: SET_INCREMENT

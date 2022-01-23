@@ -5,7 +5,7 @@ import {
   useRoutes, useLocation
 } from "react-router-dom";
 // import { TransitionGroup, CSSTransition } from "react-transition-group";
-import router from "./router";
+import router from "router";
 // import style from "./assets/style/custom/transition.module.css"
 
 function App() {

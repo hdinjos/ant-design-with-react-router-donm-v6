@@ -4,8 +4,8 @@ import {
   MenuUnfoldOutlined,
   MenuFoldOutlined,
 } from '@ant-design/icons';
-import { CollapsedContext } from '../views/Layout/CollapsedContext';
-import style from "../assets/style/BaseLayout/layout.module.css";
+import { CollapsedContext } from 'views/Layout/CollapsedContext';
+import style from "assets/style/BaseLayout/layout.module.css";
 
 const Header = () => {
   const { collapsed, setCollapsed } = useContext(CollapsedContext);
