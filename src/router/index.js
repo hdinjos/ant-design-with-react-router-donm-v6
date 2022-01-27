@@ -6,6 +6,7 @@ import Register from "views/Auth/Register";
 import Nav1 from "views/User/Nav1";
 import Nav2 from "views/User/Nav-2/Nav2";
 import Nav3 from "views/User/Nav3";
+import Create from "views/User/Nav-2/Create";
 
 // const Nav1 = lazy(() => import("../views/User/Nav1"));
 // const Nav2 = lazy(() => import("../views/User/Nav2"));
@@ -23,6 +24,10 @@ const router = (isLoggedIn) => [
       {
         path: "nav-1",
         element: <Nav1 />
+      },
+      {
+        path: "nav-2/create",
+        element: <Create />
       },
       {
         path: "nav-2",

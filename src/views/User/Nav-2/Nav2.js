@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
-import { Table, Tag, Space, Layout } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import { Table, Space, Layout, Button, Row } from 'antd';
 import Breadcrumbs from 'components/Breadcrumb';
+import { PlusCircleOutlined } from '@ant-design/icons';
 import { index } from 'services/item';
 import style from "assets/style/BaseLayout/layout.module.css"
 
@@ -14,7 +16,12 @@ const Nav2 = () => {
       setData(result);
     }
     fetchItem();
-  }, [])
+  }, []);
+
+  const navigate = useNavigate();
+  const toCreate = () => {
+    navigate("/nav-2/create");
+  }
 
   const columns = [
     {
@@ -58,6 +65,11 @@ const Nav2 = () => {
           padding: 12
         }}
       >
+        <Row style={{ marginBottom: "20px" }} justify='end'>
+          <Button onClick={toCreate} type="primary" icon={<PlusCircleOutlined />}>
+            Add
+          </Button>
+        </Row>
         <Table columns={columns} dataSource={data} />
       </Layout.Content>
     </>
