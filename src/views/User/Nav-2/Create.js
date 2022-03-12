@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Form, Input, Button, Checkbox, Layout, Radio, Space, InputNumber } from 'antd';
+import { Form, Input, Button, Checkbox, Layout, Radio, Space, InputNumber, Alert } from 'antd';
 import Breadcrumbs from 'components/Breadcrumb';
 import { create } from 'services/item';
 import style from "assets/style/BaseLayout/layout.module.css"
@@ -34,6 +34,13 @@ const Create = () => {
 
   return (
     <>
+      {/* <Alert
+        message="Warning"
+        description="This is a warning notice about copywriting."
+        type="warning"
+        showIcon
+        closable
+      /> */}
       <Breadcrumbs title="Create Item" items={bItems} />
       <div style={
         {

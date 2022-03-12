@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Table, Space, Layout, Button, Row } from 'antd';
 import Breadcrumbs from 'components/Breadcrumb';
-import { PlusCircleOutlined } from '@ant-design/icons';
+import { PlusCircleOutlined, DownloadOutlined, PlusOutlined } from '@ant-design/icons';
 import { index } from 'services/item';
 import style from "assets/style/BaseLayout/layout.module.css"
 
@@ -66,7 +66,10 @@ const Nav2 = () => {
         }}
       >
         <Row style={{ marginBottom: "20px" }} justify='end'>
-          <Button onClick={toCreate} type="primary" icon={<PlusCircleOutlined />}>
+          <Button type="primary" icon={<DownloadOutlined />} size="large">
+            Download
+          </Button>
+          <Button onClick={toCreate} type="primary" icon={<PlusOutlined />} size="large">
             Add
           </Button>
         </Row>
